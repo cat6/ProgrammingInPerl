@@ -7,6 +7,18 @@
 use strict;
 use warnings;
 use creature;
+use weapon;
+
+use Beep;
+
+# # # use lib Audio::Beep::Win32::API;
+
+my $beeper = Audio::Beep->new();
+
+	# lilypond subset syntax accepted
+	# relative notation is the default 
+	# (now correctly implemented)
+my $music = "g' f bes' c8 f d4 c8 f d4 bes c g f2";
 
 # Base creature object
 # - can (posess) reference a weapon object
@@ -25,8 +37,8 @@ use creature;
 ### Main Method ###
 
 ## Initialize ##
-# Creates Gordon Freeman, adds to aliceCreatures array, sleep(1)
-# Creates 3 headCrab ojbects, adds to aliceCreatures array, sleep(1)
+# Creates Gordon Freeman, adds to aliveCreatures array, sleep(1)
+# Creates 3 headCrab ojbects, adds to aliveCreatures array, sleep(1)
 # Equips Gordon with crowBar, sleep(1)
 # Equips headCrabs with crabClaws, sleep(1)
 
@@ -39,10 +51,17 @@ use creature;
 # 		- if any member has healthPoints <= 0, remove them from the array
 #		- if len(aliveCreatures) = 1, print "@aliveCreatures[0] wins!\n";, end.
 
-my $gordonFreeman = creature->new(name => "Gordon Freeman", hitPoints => 10, side => "good");
-my $headCrab1 = creature->new(name => "HeadCrab1", hitPoints => 2, side => "bad");
-my $headCrab2 = creature->new(name => "HeadCrab2", hitPoints => 2, side => "bad");
-my $headCrab3 = creature->new(name => "HeadCrab3", hitPoints => 2, side => "bad");
+printf("%c",7);
+
+my $crowbar = weapon->new(name => "crowbar", power => 3);
+my $crabClaw = weapon->new(name => "crab claw", power => 2);
+
+my $gordonFreeman = creature->new(name => "Gordon Freeman", hitPoints => 10, side => "good", weapon => $crowbar);
+my $headCrab1 = creature->new(name => "HeadCrab1", hitPoints => 2, side => "bad", weapon => $crabClaw);
+my $headCrab2 = creature->new(name => "HeadCrab2", hitPoints => 2, side => "bad", weapon => $crabClaw);
+my $headCrab3 = creature->new(name => "HeadCrab3", hitPoints => 2, side => "bad", weapon => $crabClaw);
+
+
 
 my @livingCreatures = ($gordonFreeman, $headCrab1, $headCrab2, $headCrab3);
 
@@ -62,6 +81,9 @@ foreach(@livingCreatures)
   sleep(1);
   $i = $i + 1;
 }
+
+# Intro done - pause, then move on with the actual game.
+sleep(5);
 
 ## TEST ##
 #$gordonFreeman->info();

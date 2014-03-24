@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 
-package creature;
+package weapon;
 
 # The constructor
 sub new 
@@ -12,9 +12,8 @@ sub new
 
    # Initialize data members
    $self->{_name} = $args{name};
-   $self->{_side} = $args{side};
-   $self->{_hitPoints} = $args{hitPoints};
-   $self->{_weapon} = $args{weapon};
+   $self->{_power} = $args{power};
+
    # do something with arguments to new()
    return $self;
 }
@@ -25,16 +24,11 @@ sub name
    return $self->{_name};
 }
 
-sub whichSide
+# Send a message
+sub getPower 
 {
    my $self = shift;
-   return $self->{_side};
-}
-
-sub hitPoints 
-{
-   my $self = shift;
-   return $self->{_hitPoints};
+   return $self->{_power};
 }
 
 sub getName 
@@ -43,19 +37,11 @@ sub getName
    print $self->name(), "\n";   
 }
 
-sub weapon
-{
-   my $self = shift;
-   return $self->{_weapon}->name();   
-}
-
 sub info 
 {
    my $self = shift;
-   print "CREATURE\n";
+   print "WEAPON\n";
    print "Name: " . $self->name(), "\n";
-   print "Side: " . $self->whichSide(), "\n";
-   print "HitPoints left: " . $self->hitPoints(), "\n";
-   print "Weapon: " . $self->weapon(), "\n\n";
+   print "Power: " . $self->getPower(), "\n\n";
 }
 1;
