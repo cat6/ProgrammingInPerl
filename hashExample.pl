@@ -1,18 +1,14 @@
 #!/usr/bin/perl
 
-# hashExample.pl - An example of using hashes in Perl
-# By: Brian Neary
+use strict;
+use warnings;
 
-%myHash = ();							 		# Instantiate a hash.  
-%myHash = ('Bridgestone' => 1991, 'Rivendell' => 2011, 'Norco' => 1987);	# Add 3 key-value pairs
-$myHash{'Bridgestone'};						 	# Outputs: 1991
+my %myHash = ();							 # Instantiate a hash.  
+%myHash = ('Bridgestone', 1991, 'Rivendell', 2011, 'Norco', 1987);	 # Add 3 key-value pairs
 
-print "Size of hash:  " . keys( %hash ) . ".\n";
+print $myHash{'Bridgestone'} . "\n";						 # Outputs: 1991
 
-############ CHECK ################
-foreach (%myHash)
+foreach my $key ( keys %myHash )
 {
-	#print $_ . " : " . $myHash{$_} . "\n";
-	print $myHash{$_} . "\n";
-	#print $myHash{$_} . "\n";
+  print "key: $key, value: $myHash{$key}\n";
 }
