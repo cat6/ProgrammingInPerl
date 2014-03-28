@@ -24,7 +24,7 @@ foreach(keys %hello1)
 	else
 	{
 		# Should not get here
-		die "Error: unexpected value when parsing hello1\n"
+		die 'Error: didn\'t get expected value when parsing hello1\n'
 	}
 }
 
