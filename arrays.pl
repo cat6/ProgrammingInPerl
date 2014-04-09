@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 my @myArray;				# Instantiate an array
-@myArray = ("foo", "bar", "blah");		# Instantiate the array and add 3 variables to it.
+@myArray = ("foo", "bar", "blah");	# Instantiate the array and add 3 variables to it.
 push(@myArray, "something");		# pushes a new value onto the end of the array
 print @myArray . "\n\n\n";				# outputs: 4 
 

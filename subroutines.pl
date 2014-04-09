@@ -29,5 +29,5 @@ my $quote = "Everybody makes it until they don't.";
 
 print "Second Array: @secondArr\n";             # Second Array: 1 2 3 4 5 6
 
-doesUselessNothing();
+doesUselessNothing($quote);
 evenHarderUselessNothing( \@secondArr );
